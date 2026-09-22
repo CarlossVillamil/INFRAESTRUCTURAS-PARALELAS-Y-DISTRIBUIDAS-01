@@ -1,0 +1,27 @@
+ # TALLER 2: DESCOMPOSICIÓN DE PROBLEMAS EN PYTHON
+
+ **Estudiantes:**  
+ Tiffany Torres Figueroa - 2610353  
+ Carlos Manuel Villamil Grisales - 2257751
+
+ **Profesor:** Manuel Alejandro Pastrana Pardo  
+ **Asignatura:** Infraestructuras Paralelas y Distribuidas-01
+
+ Facultad de Ingeniería, Escuela de Ingeniería de Sistemas y Computación,  
+ Programa Académico de Ingeniería de Sistemas. Cali, septiembre de 2026.
+
+ ## Dependencia
+
+ Este proyecto utiliza la librería **Pillow** para el procesamiento de imágenes.
+
+ Instálala con:
+
+ ```bash
+ pip install Pillow
+ ```
+
+ ## Ejercicios
+
+ **Ejercicio 1: Descomposición por dominio (datos).** En este ejercicio se encontrará un programa para procesar varias imágenes en paralelo, convirtiéndolas a escala de grises. También se incluye una versión secuencial para comparar los tiempos de ejecución y analizar las ventajas del procesamiento paralelo.
+
+ **Ejercicio 2: Descomposición funcional (tareas).** En este ejercicio se encontrará un pipeline para procesar un archivo de texto mediante tareas separadas: lectura, limpieza de líneas, conversión a mayúsculas y escritura del resultado. Para realizar la prueba, descomprima el archivo ZIP incluido para obtener el archivo TXT con muchas filas y así ejecutar una prueba real. Además, se compara con una implementación secuencial para verificar los resultados y el rendimiento.
