@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-api-demo-deployment
+  namespace: taller7-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: python-api-demo
+  template:
+    metadata:
+      labels:
+        app: python-api-demo
+    spec:
+      containers:
+        - name: python-api-demo
+          image: carlosvillamil/python-api-demo:latest
+          ports:
+            - containerPort: 8085
+          env:
+            - name: DATABASE_URL
+              value: "postgresql://postgres:postgres@postgres-service.taller7-app.svc.cluster.local:2392/demo"
+          readinessProbe:
+            httpGet:
+              path: /health/readiness
+              port: 8085
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health/liveness
+              port: 8085
+            initialDelaySeconds: 15
+            periodSeconds: 15
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-api-demo-service
+  namespace: taller7-app
+spec:
+  selector:
+    app: python-api-demo
+  ports:
+    - port: 8085
+      targetPort: 8085
+  type: LoadBalancer
